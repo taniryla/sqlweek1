@@ -13,3 +13,8 @@ CREATE TABLE products (
     category_id INTEGER,
     PRIMARY KEY (id)
 );
+
+ALTER TABLE products
+ADD CONSTRAINT fk_products_categories
+FOREIGN KEY (category_id)
+REFERENCES categories;

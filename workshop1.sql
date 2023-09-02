@@ -137,6 +137,10 @@ REFERENCES categories (id);
 
 /* one-to-one foreign key constraints */
 
+ALTER TABLE offices
+ADD CONSTRAINT fk_offices_territories
+FOREIGN KEY (territory_id)
+REFERENCES territories;
 
 /* many-to-many foreign key constraints */
 
@@ -148,7 +152,17 @@ REFERENCES orders;
 ALTER TABLE orders_products
 ADD CONSTRAINT fk_orders_products_products 
 FOREIGN KEY (product_id)
-REFERENCES products
+REFERENCES products;
+
+ALTER TABLE employees_territories
+ADD CONSTRAINT fk_employees_territories_employees
+FOREIGN KEY(employee_id)
+REFERENCES employees;
+
+ALTER TABLE employees_territories
+ADD CONSTRAINT fk_employees_territories_territories
+FOREIGN KEY (territory_id)
+REFERENCES territories;
 
 -- TODO create more constraints here...
 

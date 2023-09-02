@@ -100,6 +100,13 @@ CREATE TABLE offices (
     territory_id INTEGER NOT NULL UNIQUE, 
     PRIMARY KEY(id)
 );
+
+CREATE TABLE us_states(
+    id SERIAL UNIQUE,
+    name TEXT NOT NULL UNIQUE,
+    abbreviation CHARACTER(2) NOT NULL UNIQUE,
+    PRIMARY KEY(id)
+);
 ---
 --- Add foreign key constraints
 ---

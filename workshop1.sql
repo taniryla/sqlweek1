@@ -93,6 +93,13 @@ CREATE TABLE employees_territories(
     territory_id SERIAL,
     PRIMARY KEY (employee_id, territory_id)
 );
+
+CREATE TABLE offices (
+    id SERIAL UNIQUE,
+    address_line TEXT NOT NULL,
+    territory_id INTEGER NOT NULL UNIQUE, 
+    PRIMARY KEY(id)
+);
 ---
 --- Add foreign key constraints
 ---

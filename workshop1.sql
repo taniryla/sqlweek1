@@ -43,6 +43,32 @@ CREATE TABLE categories (
 
 -- TODO create more tables here...
 
+CREATE TABLE suppliers(
+    id SERIAL UNIQUE,
+    name TEXT NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE customers(
+    id SERIAL UNIQUE,
+    company_name TEXT NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE employees(
+    id SERIAL UNIQUE,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE orders(
+    id SERIAL UNIQUE,
+    date DATE,
+    employee_id INTEGER,
+    customer_id INTEGER NOT NULL,
+    PRIMARY KEY(id)
+);
 
 ---
 --- Add foreign key constraints

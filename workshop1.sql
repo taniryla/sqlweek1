@@ -70,6 +70,15 @@ CREATE TABLE orders(
     PRIMARY KEY(id)
 );
 
+/* bridge table for many-to-many relationship between Orders and Products */
+
+CREATE TABLE orders_products(
+    product_id SERIAL UNIQUE,
+    order_id SERIAL UNIQUE,
+    quantity INTEGER NOT NULL,
+    discount NUMERIC NOT NULL,
+    PRIMARY KEY (product_id, order_id)
+);
 ---
 --- Add foreign key constraints
 ---

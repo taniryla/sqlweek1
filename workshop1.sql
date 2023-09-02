@@ -113,7 +113,7 @@ CREATE TABLE us_states(
 
 ---
 --- Add foreign key constraints
----/* add alter table to add foreign key constraints */
+---/* add alter table to add foreign key constraints one-to-many*/
 
 ALTER TABLE orders
 ADD CONSTRAINT fk_orders_customers
@@ -125,13 +125,30 @@ ADD CONSTRAINT fk_orders_employees
 FOREIGN KEY (employee_id)
 REFERENCES employees;
 
--- PRODUCTS
+ALTER TABLE products
+ADD CONSTRAINT fk_suppliers_products
+FOREIGN KEY (supplier_id)
+REFERENCES suppliers;
 
 ALTER TABLE products
 ADD CONSTRAINT fk_products_categories 
 FOREIGN KEY (category_id) 
 REFERENCES categories (id);
 
+/* one-to-one foreign key constraints */
+
+
+/* many-to-many foreign key constraints */
+
+ALTER TABLE orders_products
+ADD CONSTRAINT fk_orders_products_orders
+FOREIGN KEY (order_id)
+REFERENCES orders;
+
+ALTER TABLE orders_products
+ADD CONSTRAINT fk_orders_products_products 
+FOREIGN KEY (product_id)
+REFERENCES products
 
 -- TODO create more constraints here...
 

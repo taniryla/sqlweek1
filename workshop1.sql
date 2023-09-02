@@ -85,6 +85,14 @@ CREATE TABLE territories(
     description TEXT NOT NULL,
     PRIMARY KEY (id)
 );
+
+/* bridge table to implement the many-to-many relationship between Employee and Territory */
+
+CREATE TABLE employees_territories(
+    employee_id SERIAL UNIQUE,
+    territory_id SERIAL,
+    PRIMARY KEY (employee_id, territory_id)
+);
 ---
 --- Add foreign key constraints
 ---
